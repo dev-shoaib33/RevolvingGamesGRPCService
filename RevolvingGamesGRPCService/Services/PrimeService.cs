@@ -1,4 +1,5 @@
 ﻿using Grpc.Core;
+using RevolvingGamesGRPCService.Data;
 using RevolvingGamesGRPCService.PrimeNumberProto;
 
 namespace RevolvingGamesGRPCService.Services
@@ -24,6 +25,16 @@ namespace RevolvingGamesGRPCService.Services
                 {
                     return Task.FromResult(new IsPrime { IsPrime_ = false });
                 }
+            }
+            bool result = PrimeNumbers.NewPrimeNumber(request.Number);
+            if (PrimeNumbers.timestamp + request.Timestamp > 1)
+            {
+                PrimeNumbers.timestamp = 0;
+                for(int i = 0; i<PrimeNumbers.highestNums.Length; i++)
+                {
+                    Console.Write($"{PrimeNumbers.highestNums[i]}, ");
+                }
+                Console.WriteLine();
             }
             return Task.FromResult(new IsPrime { IsPrime_ = true });
         }
