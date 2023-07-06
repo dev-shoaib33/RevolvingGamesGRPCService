@@ -27,10 +27,12 @@ namespace RevolvingGamesGRPCService.Services
                 }
             }
             bool result = PrimeNumbers.NewPrimeNumber(request.Number);
-            if (PrimeNumbers.timestamp + request.Timestamp > 1)
+            if (PrimeNumbers.timestamp == 0)
             {
-                PrimeNumbers.timestamp = 0;
-                for(int i = 0; i<PrimeNumbers.highestNums.Length; i++)
+                PrimeNumbers.timestamp = request.Timestamp;
+            }else if(request.Timestamp - PrimeNumbers.timestamp > 1)
+            {
+                for (int i = 0; i < PrimeNumbers.highestNums.Length; i++)
                 {
                     Console.Write($"{PrimeNumbers.highestNums[i]}, ");
                 }
