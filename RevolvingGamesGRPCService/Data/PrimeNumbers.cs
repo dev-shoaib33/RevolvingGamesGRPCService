@@ -8,7 +8,7 @@ namespace RevolvingGamesGRPCService.Data
         static public Int64[] highestNums = new Int64[10];
         static public Int64 timestamp = 0; // Check if it's been 1 second, if yes, then we print list of highest 10
 
-
+        // Check if new number among highest 10 and store
         static public bool NewPrimeNumber(Int64 number)
         {
             if(number > highestNums[9])

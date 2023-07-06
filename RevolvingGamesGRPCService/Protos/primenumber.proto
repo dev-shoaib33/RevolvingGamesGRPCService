@@ -4,14 +4,17 @@ option csharp_namespace = "RevolvingGamesGRPCService.PrimeNumberProto";
 
 package primenumber;
 
+// Prime number proto
 service PrimeNumber {
 	rpc IsPrimeNumber (PrimeNumberModel) returns (IsPrime);
 }
 
+// Response Model
 message IsPrime {
 	bool isPrime = 1;
 }
 
+// Request Model
 message PrimeNumberModel {
 	int64 id = 1;
 	int64 timestamp = 2;
