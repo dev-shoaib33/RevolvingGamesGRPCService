@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "RevolvingGamesGRPCClient";
+
+package primenumber;
+
+service PrimeNumber {
+	rpc IsPrimeNumber (PrimeNumberModel) returns (IsPrime);
+}
+
+message IsPrime {
+	bool isPrime = 1;
+}
+
+message PrimeNumberModel {
+	int64 id = 1;
+	int64 timestamp = 2;
+	int64 number = 3;
+}

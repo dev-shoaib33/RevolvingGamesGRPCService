@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "RevolvingGamesGRPCService": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5236;https://localhost:7271",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
